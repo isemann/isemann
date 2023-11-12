@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from "@angular/material/sidenav";
@@ -17,6 +17,8 @@ import { distinctUntilChanged, tap } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule,
      RouterOutlet,
+     RouterLink, 
+     RouterLinkActive,
      MatGridListModule,
      MatToolbarModule,
      MatSidenavModule,
@@ -25,9 +27,10 @@ import { distinctUntilChanged, tap } from 'rxjs/operators';
      MatButtonModule,
      LayoutModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: []
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'isemann';
   time!: Date;
   hours = 0;
@@ -89,4 +92,5 @@ export class AppComponent {
   firebaseSusbscribing(){
     
   }
+
 }

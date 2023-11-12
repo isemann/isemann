@@ -5,7 +5,7 @@ import { ConnectComponent } from './connect/connect.component';
 export const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
     },
     {
         path: 'home',
@@ -14,6 +14,10 @@ export const routes: Routes = [
     {
         path: 'connect',
         component: ConnectComponent,
+    },
+    {
+        path: '**',
+        component: HomeComponent,
     },
 ];
 
