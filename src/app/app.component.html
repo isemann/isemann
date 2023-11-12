@@ -1,5 +1,5 @@
-<div class="container">
-  <div style="height: 90.5vh;">
+<div class="outer-container">
+  <div class="container">
     <div [ngSwitch]="currentBreakpoint">
       <span *ngSwitchCase="Breakpoints.Web">
         <mat-toolbar class="header">
@@ -7,10 +7,12 @@
             <span><a routerLink="/" routerLinkActive="active" class="logo"><img
                   src="../assets/images/isemann.png" height="48px"
                   style="margin-top: 5px;"></a></span>
-            <span class="menu-spacer"></span>
-            <a class="menuItem" href="#" mat-button>Login</a>
-            <a class="date">{{time | date:'fullDate'}}</a><a class="time">{{time
-              | date:'HH:mm:ss'}}</a>
+            <span class="menu-spacer">
+              <span class="menu-positioner">
+                <a class="menuItem" href="connect" mat-button>Connect</a>
+                <a class="date">{{time | date:'fullDate'}}</a><a class="time">{{time
+                  | date:'HH:mm:ss'}}</a></span>
+            </span>
 
           </mat-toolbar-row>
         </mat-toolbar>
@@ -46,8 +48,9 @@
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>
-    <div class="footer">
-      &copy; Bernhard Isemann, 2023
-    </div>
+
   </div>
+</div>
+<div class="footer">
+  &copy; Bernhard Isemann, 2023
 </div>
