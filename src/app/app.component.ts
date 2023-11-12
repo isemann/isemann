@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -7,6 +7,9 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
+import { LayoutModule } from '@angular/cdk/layout';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { distinctUntilChanged, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +21,8 @@ import { MatIconModule } from "@angular/material/icon";
      MatSidenavModule,
      MatListModule,
      MatIconModule,
-     MatButtonModule],
+     MatButtonModule,
+     LayoutModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -27,13 +31,40 @@ export class AppComponent {
   time!: Date;
   hours = 0;
   msg = 'Hi';
-  constructor(){
+
+  readonly breakpoint$ = this.breakpointObserver
+    .observe([Breakpoints.Handset, Breakpoints.Tablet, Breakpoints.Web])
+    .pipe(
+      tap(value => console.log(value)),
+      distinctUntilChanged()
+    );
+
+  Breakpoints = Breakpoints;
+  currentBreakpoint:string = '';
+
+  constructor(private breakpointObserver: BreakpointObserver){
     setInterval(() => {
       this.time = new Date();
    }, 1000);
 
    this.decide();
   }
+
+  ngOnInit(): void {
+    this.breakpoint$.subscribe(() =>
+      this.breakpointChanged()
+    );
+  }
+  private breakpointChanged() {
+    if(this.breakpointObserver.isMatched(Breakpoints.Handset)) {
+      this.currentBreakpoint = Breakpoints.Handset;
+    } else if(this.breakpointObserver.isMatched(Breakpoints.Tablet)) {
+      this.currentBreakpoint = Breakpoints.Tablet;
+    } else if(this.breakpointObserver.isMatched(Breakpoints.Web)) {
+      this.currentBreakpoint = Breakpoints.Web;
+    } 
+  }
+
   decide() {
     this.hours = new Date().getHours();
     console.log("this.hours",this.hours)
