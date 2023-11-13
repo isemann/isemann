@@ -3,21 +3,13 @@ import { HomeComponent } from './home/home.component';
 import { ConnectComponent } from './connect/connect.component';
 
 export const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent,
-    },
-    {
-        path: 'home',
-        component: HomeComponent,
-    },
+    {path: '', loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent)},
+    {path: 'home', loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent)},
     {
         path: 'connect',
         component: ConnectComponent,
     },
-    {
-        path: '**',
-        component: HomeComponent,
-    },
+    {path: '**', loadComponent: () => import('./home/home.component').then(mod => mod.HomeComponent)},
+    
 ];
 

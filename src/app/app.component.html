@@ -4,12 +4,12 @@
       <span *ngSwitchCase="Breakpoints.Web">
         <mat-toolbar class="header">
           <mat-toolbar-row>
-            <span><a routerLink="home" routerLinkActive="active" class="logo"><img
+            <span><a routerLink="/" routerLinkActive="active" class="logo"><img
                   src="../assets/images/isemann.png" height="48px"
                   style="margin-top: 5px;"></a></span>
             <span class="menu-spacer">
               <span class="menu-positioner">
-                <a class="menuItem" href="#" mat-button>Connect</a>
+                <a class="menuItem" routerLink="/" routerLinkActive="active" mat-button>Connect</a>
                 <a class="date">{{time | date:'fullDate'}}</a><a class="time">{{time
                   | date:'HH:mm:ss'}}</a></span>
             </span>
@@ -24,7 +24,7 @@
             <button mat-icon-button (click)="sidenav.toggle()">
               <mat-icon class="hamburger">menu</mat-icon>
             </button>
-            <span><a routerLink="home" routerLinkActive="active" class="logo"><img
+            <span><a routerLink="/" routerLinkActive="active" class="logo"><img
                   src="../assets/images/isemann.png" height="48px"
                   style="margin-top: 5px;"></a></span>
           </mat-toolbar-row>
