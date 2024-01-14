@@ -9,8 +9,10 @@
                   style="margin-top: 5px;"></a></span>
             <span class="menu-spacer">
               <span class="menu-positioner">
-                <a class="menuItem" routerLink="/home" routerLinkActive="active"
-                  mat-button>Connect</a>
+                <a class="menuItem" href="https://isemann.fr" target="_blank"
+                  mat-button>Logbook</a>
+                  <a class="menuItem" href="http://isemann.at:8080" target="_blank"
+                  mat-button>Chripstack</a>
                 <a class="date">{{time | date:'fullDate'}}</a><a class="time">{{time
                   | date:'HH:mm:ss'}}</a></span>
             </span>
@@ -36,7 +38,8 @@
         <mat-sidenav #sidenav>
           <mat-nav-list>
             <a (click)="sidenav.toggle()" href mat-list-item>Close</a>
-            <a href="#" mat-list-item>Login</a>
+            <a href="https://isemann.fr" target="_blank" mat-list-item>Logbook</a>
+            <a href="http://isemann.at:8080" target="_blank" mat-list-item>Chirpstack</a>
             <a class="dateSide">{{time | date:'fullDate'}}</a><a
               class="timeSide">{{time
               | date:'HH:mm:ss'}}</a>
