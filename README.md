@@ -5,6 +5,7 @@ It is hosted in a datacenter in HongKong, China and integrates information from 
 
 ## Contact details
 Email: bernhard@isemann.at
+
 LinkedIn: [Bernhard Isemann](https://www.linkedin.com/in/bernhardisemann/)
+
 CallSign: OE3BIA, F4VVO
-s
