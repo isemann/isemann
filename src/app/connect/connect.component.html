@@ -1,0 +1,30 @@
+<div id="g_id_onload"
+     data-client_id="531965347941-27rc48dv483vkqm41r2t16uv40qnr3vc.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-itp_support="true"
+     data-callback="handleOauthResponse">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="medium"
+     data-logo_alignment="left">
+</div>
+<!-- Function to handle the JWT response -->
+<script>
+    function decodeJWTToken(token){
+      return JSON.parse(atob(token.split(".")[1]))
+    }
+    function handleOauthResponse(response){
+      const responsePayload = decodeJWTToken(response.credential)
+      console.log(responsePayload)
+      sessionStorage.setItem('loggedinUser',JSON.stringify(responsePayload))
+      window.location('/home') 
+      //Changed the above URL where you want user to be redirected
+    }
+  </script>
+
