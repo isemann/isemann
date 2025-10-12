@@ -35,7 +35,7 @@
 
   .card {
     margin: 10px;
-    min-width: 380px;
+    width: 90%;
     min-height: 80px;
   }
 
@@ -47,7 +47,7 @@
 
   .cardmax {
     margin: 10px;
-    min-width: 380px;
+    width: 90%;
     min-height: 80px;
   }
 
@@ -151,4 +151,73 @@
   .LoRa {
     width: 86vw;
   }
+
+  .temChart {
+  max-width: 90%;
+
+}
+
+.usageList {
+  max-width: 97%;
+}
+
+.usageMap {
+  max-width: 99%;
+}
+
+.log-table {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.error-table {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.usage-table {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.log-table .mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  background-color: lightgreen;
+}
+
+.error-table .mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  background-color: lightpink;
+}
+
+.usage-table .mat-mdc-row:hover .mat-mdc-cell {
+  border-color: currentColor;
+  background-color: lightblue;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.mat-mdc-table .mdc-data-table__row {
+  height: 24px;
+}
+
+.mat-mdc-table .mdc-data-table__header-row {
+  height: 35px;
+}
+
+.mat-mdc-row:nth-child(2n) {
+  background: gainsboro;
+}
+
+.mat-mdc-row:nth-child(2n+1) {
+  background: white;
+}
 

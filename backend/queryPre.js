@@ -21,7 +21,10 @@ const influxConnectPre = async () => {
         .collectRows(queryPre /*, you can specify a row mapper as a second arg */)
         .then(data => {
             data.forEach((x) => {
-                preData.push({ time: x._time, messurement: 'Pressure', device: x.device_name, value: x._value });
+                let splitDate1 = x._time.split('T');
+                let splitDate2 = splitDate1[1].split('.')
+                let splitDateTime = splitDate1[0] + ' ' + splitDate2[0];
+                preData.push({ time: splitDateTime, messurement: 'Pressure', device: x.device_name, value: x._value });
             })
             console.log('\nCollect ROWS SUCCESS');
         })
